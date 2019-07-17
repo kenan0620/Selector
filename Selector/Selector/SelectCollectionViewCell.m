@@ -33,6 +33,7 @@
 - (void)setModel:(SelectModel *)model{
     _model = model;
     self.nameLabel.text = _model.nameStr;
+    //前两种方法实现
     if (_model.isSelected) {
         self.nameLabel.textColor = [UIColor brownColor];
     }else{
@@ -47,5 +48,15 @@
         _nameLabel = [[UILabel alloc]init];
     }
     return _nameLabel;
+}
+
+- (void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    //第三种方法实现
+    if (selected) {
+        self.nameLabel.textColor = [UIColor brownColor];
+    }else{
+        self.nameLabel.textColor = [UIColor lightGrayColor];
+    }
 }
 @end

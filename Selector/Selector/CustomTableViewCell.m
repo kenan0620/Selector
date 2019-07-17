@@ -32,11 +32,12 @@
 - (void)setSelectModel:(SelectModel *)selectModel{
     _selectModel = selectModel;
     self.nameLabel.text = _selectModel.nameStr;
-    if (_selectModel.isSelected) {
-        self.nameLabel.textColor = [UIColor brownColor];
-    }else{
-        self.nameLabel.textColor = [UIColor lightGrayColor];
-    }
+    #pragma mark -  第一二种方法实现
+//    if (_selectModel.isSelected) {
+//        self.nameLabel.textColor = [UIColor brownColor];
+//    }else{
+//        self.nameLabel.textColor = [UIColor lightGrayColor];
+//    }
 }
 
 #pragma mark -  UILazy
@@ -54,8 +55,13 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
+    //第三种方法实现
+    if (selected) {
+        self.nameLabel.textColor = [UIColor brownColor];
+    }else{
+        self.nameLabel.textColor = [UIColor lightGrayColor];
+    }
 }
 
 @end

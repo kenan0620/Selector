@@ -70,11 +70,11 @@
     /**
      此种单选方法仅仅支持一次性加载完选择数据，如果有数据上拉加载，则不支持。
      */
-    [self configCellStatus:collectionView IndexPath:indexPath Status:YES];
+//    [self configCellStatus:collectionView IndexPath:indexPath Status:YES];
     #pragma mark -  Method 1 End
     
     
-//        #pragma mark -  Method 2 Start
+        #pragma mark -  Method 2 Start
 //        /**
 //         此种单选方法支持所有，会遍历所有数据。
 //         */
@@ -92,7 +92,14 @@
 //        //更换数据源
 //        self.dataList = array;
 //        [collectionView reloadData];
-//        #pragma mark -  Method 2 End
+        #pragma mark -  Method 2 End
+    
+        #pragma mark -  Method 3 Start
+        /**
+         此种单选方法在加载数据的时候会刷新原有cell选中状态。每次刷新后全部为未选中状态。
+         */
+        [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:(UICollectionViewScrollPositionTop)];
+        #pragma mark -  Method 3 End
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -100,7 +107,7 @@
     /**
      此种单选方法仅仅支持一次性加载完选择数据，如果有数据上拉加载，则不支持。
      */
-    [self configCellStatus:collectionView IndexPath:indexPath Status:NO];
+//    [self configCellStatus:collectionView IndexPath:indexPath Status:NO];
 #pragma mark -  Method 1 End
     
 }
